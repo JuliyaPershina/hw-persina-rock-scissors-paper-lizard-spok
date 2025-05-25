@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="box-header">
+        <img src="./images/logo-bonus.svg" alt="Logo 'Rock, Scissors, Paper, Lizard, Spock '">
+        <div class="score">
+          <p class="score-text">Score</p>
+          <p class="scoreNumber">0</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="container">
+
+        <button class="buttonCircle" data-id="0">
+          <div class="circle circle-down scissors" style="--i:0;"></div>
+          <div class="circle circle-white" style="--i:0;"></div>
+          <div class="circle scissors-light" style="--i:0;">
+            <img src="./images/2.svg" alt="scissors">
+          </div>
+        </button>
+
+        <button class="buttonCircle" data-id="1">
+          <div class="circle circle-down paper" style="--i:1;"></div>
+          <div class="circle circle-white" style="--i:1;"></div>
+          <div class="circle paper-light" style="--i:1;">
+            <img src="./images/1.svg" alt="paper">
+          </div>
+        </button>
+
+        <button class="buttonCircle" data-id="2">
+          <div class="circle circle-down rock" style="--i:2;"></div>
+          <div class="circle circle-white" style="--i:2;"></div>
+          <div class="circle rock-light" style="--i:2;">
+            <img src="./images/0.svg" alt="rock">
+          </div>
+        </button>
+
+        <button class="buttonCircle" data-id="3">
+          <div class="circle circle-down lizard" style="--i:3;"></div>
+          <div class="circle circle-white" style="--i:3;"></div>
+          <div class="circle lizard-light" style="--i:3;">
+            <img src="./images/3.svg" alt="lizard">
+          </div>
+        </button>
+
+        <button class="buttonCircle" data-id="4">
+          <div class="circle circle-down spock" style="--i:4;"></div>
+          <div class="circle circle-white" style="--i:4;"></div>
+          <div class="circle spock-light" style="--i:4;">
+            <img src="./images/4.svg" alt="spock">
+          </div>
+        </button>
+
+      </div>
+
+      <div class="wrapper ">
+
+        <div class="your-pick">
+          <h1 class="you-win">YOU PICKED</h1>
+          <img src="" alt="">
+          <div class="your-pick-image"></div>
+        </div>
+
+        <button class="play-again">
+          спробувати ще
+        </button>
+    
+        <div class="computer-pick">
+          <h1 class="computer-wins">THE HOUSE PICKED</h1>
+          <img src="" alt="">
+        </div>
+    
+      </div>
+    </main>
+
+    <footer>
+      <button popovertarget="pop-rules" class="button-rules-up gradient-houdini">Rules</button>
+      <div id="pop-rules" popover>
+        <button popovertarget="pop-rules" popovertargetaction="hide">
+          <img src="./images/icon-close.svg" alt="">
+        </button>
+        <img src="./images/image-rules-bonus.svg" alt="">
+      </div> 
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+

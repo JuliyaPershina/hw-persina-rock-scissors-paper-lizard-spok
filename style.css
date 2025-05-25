@@ -1,0 +1,302 @@
+:root {
+  --ScissorsGradient: hsl(39, 89%, 49%);
+  --PaperGradient: hsl(230, 89%, 62%);
+  --RockGradient: hsl(349, 71%, 52%);
+  --LizardGradient: hsl(261, 73%, 60%);
+  --Cyan: hsl(189, 59%, 53%);
+  --DarkText: hsl(229, 25%, 31%);
+  --ScoreText: hsl(229, 64%, 46%);
+  --HeaderOutline: hsl(217, 16%, 45%);
+  --BgColor: radial-gradient(
+    134.34% 134.34% at 50% 0%,
+    #1f3757 0%,
+    #131537 100%
+  );
+  --TextColor: #ffffff;
+
+  --container-width: 472px;
+  --container-height: 463px;
+  --circle-size: 145px;
+  --circle-size-small: 124px;
+  --radius: calc((var(--container-width) - var(--circle-size)) / 2);
+}
+html {
+  background: #161d3f;
+}
+body {
+  max-height: 100vh;
+  height: 100%;
+  max-width: 100vw;
+  background: var(--BgColor);
+  color: var(--TextColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-block: 48px;
+  position: relative;
+}
+
+header {
+  /* margin-top: 48px; */
+  /* padding-block-start: 48px; */
+  height: calc(100% / 5);
+  max-width: 764px;
+  width: 100%;
+  padding-inline: 32px;
+  /* flex-shrink: 0; */
+  .box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 700px;
+    height: 150px;
+    border: 3px solid rgba(255, 255, 255, 0.289199);
+    border-radius: 15px;
+    padding-block: 18px;
+    padding-inline: 32px 24px;
+    .score {
+      width: 150px;
+      height: 114px;
+      background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+      border-radius: 8px;
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      padding-block: 16px;
+    }
+    .score-text {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: 2.5px;
+      color: #2a45c2;
+      text-transform: uppercase;
+    }
+    .scoreNumber {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 64px;
+      text-align: center;
+      color: #565468;
+    }
+  }
+}
+
+main {
+  flex-shrink: 1;
+}
+.container {
+  position: relative;
+  width: var(--container-width);
+  height: var(--container-height);
+  margin: 40px auto 0px;
+}
+
+.invizible {
+  display: none;
+}
+
+button.buttonCircle:active {
+  opacity: 0.8;
+}
+
+.circle {
+  --angle: calc(72deg * var(--i) - 90deg);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background: transparent;
+  border: 17px solid #eb9f0e;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius))
+    rotate(calc(-1 * var(--angle)));
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    top: 51%;
+  }
+}
+
+.circle-down {
+  background: #c76c1b;
+  border: none;
+  top: 52%;
+}
+.circle-white {
+  width: var(--circle-size-small);
+  height: var(--circle-size-small);
+  background: white;
+  border: 7px solid #babfd4;
+  top: 51%;
+}
+.container .circle img {
+  object-fit: none;
+}
+
+.scissors {
+  background: #c76c1b;
+}
+.scissors-light {
+  border: 17px solid #eb9f0e;
+}
+.paper {
+  background: #2a45c2;
+}
+.paper-light {
+  border: 17px solid #4664f4;
+}
+.rock {
+  background: #9d1634;
+}
+.rock-light {
+  border: 17px solid #db2e4d;
+}
+.lizard {
+  background: #5f37a8;
+}
+.lizard-light {
+  border: 17px solid #834ee3;
+}
+.spock {
+  background: #2d8dab;
+}
+.spock-light {
+  border: 17px solid #3fb7cd;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: 64px;
+  bottom: 0;
+}
+.button-rules-up {
+  width: 128px;
+  height: 40px;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 2.5px;
+  background: transparent;
+  color: #ffffff;
+  transition: all 0.5s ease-in;
+  &:hover {
+    color: #3b4262;
+    background: #f3f3f3;
+  }
+}
+
+@property --start {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #1e3354;
+}
+@property --end {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #151b3d;
+}
+
+.gradient-houdini {
+  --start: #1e3354;
+  --end: #151b3d;
+  background: transparent;
+  transition: --start 1s ease, --end 1s ease;
+}
+
+.gradient-houdini:hover {
+  --start: #f3f3f3;
+  --end: #ffffff;
+  background: linear-gradient(0deg, var(--start) 0%, var(--end) 100%);
+}
+
+/* Сторінка  результату гри */
+
+main.winner.you-win {
+  background: url('./images/you-win.svg') left top no-repeat;
+  background-size: auto 100%;
+}
+
+main.winner.computer-wins {
+  background: url('./images/computer-wins.svg') right top no-repeat;
+  background-size: auto 100%;
+}
+
+/* main.computer-wins h1.you-win,
+main.you-win h1.computer-wins {
+  visibility: hidden;
+} */
+
+.wrapper.visible {
+  min-width: 660px;
+  margin-block: 72px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 77px;
+}
+
+.your-pick,
+.computer-pick {
+  position: relative;
+  width: 239px;
+  height: 395px;
+}
+
+.circle-choise {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 80px;
+  left: 48px;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  scale: 2;
+  border-radius: 50%;
+  background: transparent;
+  border: 17px solid #eb9f0e;
+  transition: all 0.5s ease-in-out;
+}
+.circle-white-choise {
+  width: var(--circle-size-small);
+  height: var(--circle-size-small);
+  background: white;
+  border: 7px solid #babfd4;
+  left: 58px;
+}
+.circle-down-choise {
+  background: #c76c1b;
+  border: none;
+  bottom: 68px;
+}
+img {
+  object-fit: none;
+}
+
+.play-again {
+  width: 220px;
+  height: 48px;
+  background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+  border-radius: 8px;
+}
+
+.play-again:hover {
+  background: black;
+  color: white;
+}
