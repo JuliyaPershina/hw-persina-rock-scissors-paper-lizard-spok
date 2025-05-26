@@ -8,6 +8,7 @@ const computerImage = document.querySelector('.computer-pick > img');
 const youWinText = document.querySelector('.you-win');
 const computerWinsText = document.querySelector('.computer-wins');
 const yourPickImage = document.querySelector('.your-pick-image');
+const computerPickImage = document.querySelector('.computer-pick-image');
 const wrapper = document.querySelector('.wrapper');
 wrapper.classList.add('invizible');
 
@@ -39,10 +40,24 @@ buttonCircles.forEach((button, i) => {
     wrapper.classList.add('visible');
 
     yourPickImage.outerHTML = `
-    <div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise " style="--i:${user};"></div>
-    <div class="circle-choise circle-white-choise " style="--i:${user};"></div>
-    <div class="${choiceToImageMap[i].alt}-light circle-choise" style="--i:${user};">
+    <div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise "></div>
+    <div class="circle-choise circle-white-choise "></div>
+    <div class="${choiceToImageMap[i].alt}-light circle-choise">
     <img src="./images/${choiceToImageMap[i].image}" alt="">
+    </div>
+    `;
+    // yourPickImage.outerHTML = `
+    // <div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise " style="--i:${user};"></div>
+    // <div class="circle-choise circle-white-choise " style="--i:${user};"></div>
+    // <div class="${choiceToImageMap[i].alt}-light circle-choise" style="--i:${user};">
+    // <img src="./images/${choiceToImageMap[i].image}" alt="">
+    // </div>
+    // `;
+    computerPickImage.outerHTML = `
+    <div class="${choiceToImageMap[computer].alt} circle-choise circle-down-choise "></div>
+    <div class="circle-choise circle-white-choise "></div>
+    <div class="${choiceToImageMap[computer].alt}-light circle-choise">
+    <img src="./images/${choiceToImageMap[computer].image}" alt="">
     </div>
     `;
 
