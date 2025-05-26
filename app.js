@@ -60,6 +60,13 @@ buttonCircles.forEach((button, i) => {
     <img src="./images/${choiceToImageMap[computer].image}" alt="">
     </div>
     `;
+    computerPickImage.outerHTML = `
+    <div class="${choiceToImageMap[computer].alt} circle-choise circle-down-choise "></div>
+    <div class="circle-choise circle-white-choise "></div>
+    <div class="${choiceToImageMap[computer].alt}-light circle-choise">
+    <img src="./images/${choiceToImageMap[computer].image}" alt="">
+    </div>
+    `;
 
     console.log(buttonChoise);
 
