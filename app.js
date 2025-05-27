@@ -3,6 +3,7 @@ const buttonCircles = document.querySelectorAll('.buttonCircle');
 
 const body = document.querySelector('body');
 const playAgain = document.querySelector('.play-again');
+const textPlayAgain = document.querySelector('.text-play-again');
 const userImage = document.querySelector('.your-pick > img');
 const computerImage = document.querySelector('.computer-pick > img');
 const youWinText = document.querySelector('.you-win');
@@ -20,12 +21,19 @@ const choiceToImageMap = {
   4: { image: '4.svg', alt: 'spock' },
 };
 
+// const winningCombos = {
+//   0: { beats: '2', losesTo: '1' }, // Камінь перемагає ножиці, програє паперу
+//   1: { beats: '0', losesTo: '2' }, // Папір перемагає камінь, програє ножицям
+//   2: { beats: '1', losesTo: '0' }, // Ножиці перемагають папір, програють каменю
+//   3: { beats: '1', losesTo: '0' }, // Ножиці перемагають папір, програють каменю
+//   4: { beats: '1', losesTo: '0' }, // Ножиці перемагають папір, програють каменю
+// };
 const winningCombos = {
-  0: { beats: '2', losesTo: '1' }, // Камінь перемагає ножиці, програє паперу
-  1: { beats: '0', losesTo: '2' }, // Папір перемагає камінь, програє ножицям
-  2: { beats: '1', losesTo: '0' }, // Ножиці перемагають папір, програють каменю
-  3: { beats: '1', losesTo: '0' }, // Ножиці перемагають папір, програють каменю
-  4: { beats: '1', losesTo: '0' }, // Ножиці перемагають папір, програють каменю
+  0: { beats: ['1', '3'], losesTo: '1' }, // scissors
+  1: { beats: ['2', '4'], losesTo: '2' }, // paper
+  2: { beats: ['0', '3'], losesTo: '0' }, // rock
+  3: { beats: ['1', '4'], losesTo: '0' }, // lizard
+  4: { beats: ['0', '2'], losesTo: '0' }, // spock
 };
 
 buttonCircles.forEach((button, i) => {
@@ -40,65 +48,81 @@ buttonCircles.forEach((button, i) => {
     wrapper.classList.add('visible');
 
     yourPickImage.outerHTML = `
-    <div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise "></div>
+    <div class="your-pick-image"><div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise "></div>
     <div class="circle-choise circle-white-choise "></div>
     <div class="${choiceToImageMap[i].alt}-light circle-choise">
     <img src="./images/${choiceToImageMap[i].image}" alt="">
-    </div>
+    </div></div>
     `;
-    // yourPickImage.outerHTML = `
-    // <div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise " style="--i:${user};"></div>
-    // <div class="circle-choise circle-white-choise " style="--i:${user};"></div>
-    // <div class="${choiceToImageMap[i].alt}-light circle-choise" style="--i:${user};">
-    // <img src="./images/${choiceToImageMap[i].image}" alt="">
-    // </div>
-    // `;
+
     computerPickImage.outerHTML = `
-    <div class="${choiceToImageMap[computer].alt} circle-choise circle-down-choise "></div>
+    <div class="computer-pick-image"><div class=" circle-choise circle-down-choise ${choiceToImageMap[computer].alt}"></div>
     <div class="circle-choise circle-white-choise "></div>
-    <div class="${choiceToImageMap[computer].alt}-light circle-choise">
+    <div class=" circle-choise ${choiceToImageMap[computer].alt}-light">
     <img src="./images/${choiceToImageMap[computer].image}" alt="">
-    </div>
+    </div></div>
     `;
-    computerPickImage.outerHTML = `
-    <div class="${choiceToImageMap[computer].alt} circle-choise circle-down-choise "></div>
-    <div class="circle-choise circle-white-choise "></div>
-    <div class="${choiceToImageMap[computer].alt}-light circle-choise">
-    <img src="./images/${choiceToImageMap[computer].image}" alt="">
-    </div>
-    `;
-
-    console.log(buttonChoise);
-
-    // buttonChoise.classList.add('circle-choise');
-
-    userImage.src = `./images/${choiceToImageMap[user].image}`;
-    userImage.alt = `${choiceToImageMap[computer].alt}`;
-
-    computerImage.src = `./images/${choiceToImageMap[computer].image}`;
-    computerImage.alt = `${choiceToImageMap[computer].alt}`;
 
     const chekWinner = () => {
       if (user === computer) {
-        youWinText.textContent = computerWinsText.textContent = 'нічия';
-        return;
+        textPlayAgain.textContent = 'draw';
+      } else {
+        if (isUserWinner) {
+          textPlayAgain.textContent = 'YOU WIN';
+        } else {
+          textPlayAgain.textContent = 'YOU LOOSE';
+        }
       }
     };
-    const isUserWinner = winningCombos[user].beats === computer;
+    const isUserWinner =
+      winningCombos[user].beats[0] === computer ||
+      winningCombos[user].beats[1] === computer;
     const winner = isUserWinner ? 'ти' : "комп'ютер";
 
+    console.log(winningCombos[user].beats[0], winningCombos[user].beats[1]);
+    console.log(isUserWinner);
     console.log(`переможець ${winner}`);
-
-    if (isUserWinner) {
-      body.classList.add('you-win');
-      youWinText.textContent = `${winner} переміг`;
-    } else {
-      body.classList.add('computer-wins');
-      computerWinsText.textContent = `${winner} переміг`;
-    }
 
     chekWinner();
   });
 });
 
+playAgain.addEventListener('click', (event) => {
+  
+  wrapper.classList.remove('visible');
+  container.classList.remove('invizible');
+  console.dir(yourPickImage);
+  yourPickImage.outerHTML = `<div class="your-pick-image"></div>`;
+  computerPickImage.outerHTML = `<div class="computer-pick-image"></div>`;
+});
+
+
+// buttonChoise.classList.add('circle-choise');
+
+// userImage.src = `./images/${choiceToImageMap[user].image}`;
+// userImage.alt = `${choiceToImageMap[computer].alt}`;
+
+// computerImage.src = `./images/${choiceToImageMap[computer].image}`;
+// computerImage.alt = `${choiceToImageMap[computer].alt}`;
+
+// if (isUserWinner) {
+//   body.classList.add('you-win');
+//   youWinText.textContent = `${winner} переміг`;
+// } else {
+//   body.classList.add('computer-wins');
+//   computerWinsText.textContent = `${winner} переміг`;
+//   textPlayAgain.textContent = `YOU LOSE`;
+// }
+
 // console.log(winningCombos);
+
+// Scissors beats Paper
+// - Paper beats Rock
+// - Rock beats Lizard
+// - Lizard beats Spock
+// - Spock beats Scissors
+// - Scissors beats Lizard
+// - Paper beats Spock
+// - Rock beats Scissors
+// - Lizard beats Paper
+// - Spock beats Rock

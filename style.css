@@ -103,6 +103,8 @@ button.buttonCircle:active {
   opacity: 0.8;
 }
 
+
+
 .circle {
   --angle: calc(72deg * var(--i) - 90deg);
   position: absolute;
@@ -139,36 +141,7 @@ button.buttonCircle:active {
   object-fit: none;
 }
 
-.scissors {
-  background: #c76c1b;
-}
-.scissors-light {
-  border: 17px solid #eb9f0e;
-}
-.paper {
-  background: #2a45c2;
-}
-.paper-light {
-  border: 17px solid #4664f4;
-}
-.rock {
-  background: #9d1634;
-}
-.rock-light {
-  border: 17px solid #db2e4d;
-}
-.lizard {
-  background: #5f37a8;
-}
-.lizard-light {
-  border: 17px solid #834ee3;
-}
-.spock {
-  background: #2d8dab;
-}
-.spock-light {
-  border: 17px solid #3fb7cd;
-}
+
 
 footer {
   position: absolute;
@@ -294,9 +267,48 @@ img {
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
   border-radius: 8px;
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #3b4262;
 }
 
 .play-again:hover {
   background: black;
   color: white;
+}
+
+.scissors {
+  background: #c76c1b;
+}
+.scissors-light {
+  border: 17px solid #eb9f0e;
+}
+.paper {
+  background: #2a45c2;
+}
+.paper-light {
+  border: 17px solid #4664f4;
+}
+.rock {
+  background: #9d1634;
+}
+.rock-light {
+  border: 17px solid #db2e4d;
+}
+.lizard {
+  background: #5f37a8;
+}
+.lizard-light {
+  border: 17px solid #834ee3;
+}
+.spock {
+  background: #2d8dab;
+}
+.spock-light {
+  border: 17px solid #3fb7cd;
 }
