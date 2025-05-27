@@ -1,5 +1,10 @@
 const container = document.querySelector('.container');
 const buttonCircles = document.querySelectorAll('.buttonCircle');
+const buttonRulesUp = document.querySelector('.button-rules-up');
+const buttonRulesDown = document.querySelector('.button-rules-down');
+const popover = document.querySelector('.pop-rules');
+
+
 
 const body = document.querySelector('body');
 const playAgain = document.querySelector('.play-again');
@@ -12,6 +17,8 @@ const yourPickImage = document.querySelector('.your-pick-image');
 const computerPickImage = document.querySelector('.computer-pick-image');
 const wrapper = document.querySelector('.wrapper');
 wrapper.classList.add('invizible');
+
+
 
 const choiceToImageMap = {
   0: { image: '2.svg', alt: 'scissors' },
@@ -102,6 +109,23 @@ playAgain.addEventListener('click', (event) => {
   computerPickImage.outerHTML = `<div class="computer-pick-image"></div>`;
 
 });
+
+buttonRulesUp.addEventListener('click', (event) => {
+  event.stopPropagation()
+  body.classList.toggle('body-dark')  
+})
+buttonRulesDown.addEventListener('click', (event) => {
+  event.stopPropagation()
+  body.classList.remove('body-dark')
+})
+popover.addEventListener('click', (event) => {
+  event.stopPropagation()
+  body.classList.add('body-dark');
+})
+
+body.addEventListener('click', (event) => {
+  body.classList.remove('body-dark');
+})
 
 
 // buttonChoise.classList.add('circle-choise');
