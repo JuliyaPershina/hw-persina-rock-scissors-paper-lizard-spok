@@ -47,6 +47,9 @@ buttonCircles.forEach((button, i) => {
     container.classList.add('invizible');
     wrapper.classList.add('visible');
 
+    const yourPickImage = document.querySelector('.your-pick-image');
+    const computerPickImage = document.querySelector('.computer-pick-image');
+
     yourPickImage.outerHTML = `
     <div class="your-pick-image"><div class="${choiceToImageMap[i].alt} circle-choise circle-down-choise "></div>
     <div class="circle-choise circle-white-choise "></div>
@@ -75,8 +78,8 @@ buttonCircles.forEach((button, i) => {
       }
     };
     const isUserWinner =
-      winningCombos[user].beats[0] === computer ||
-      winningCombos[user].beats[1] === computer;
+      winningCombos[user].beats[0] == computer ||
+      winningCombos[user].beats[1] == computer;
     const winner = isUserWinner ? 'ти' : "комп'ютер";
 
     console.log(winningCombos[user].beats[0], winningCombos[user].beats[1]);
@@ -88,12 +91,16 @@ buttonCircles.forEach((button, i) => {
 });
 
 playAgain.addEventListener('click', (event) => {
-  
+
+  const yourPickImage = document.querySelector('.your-pick-image');
+  const computerPickImage = document.querySelector('.computer-pick-image');
+
   wrapper.classList.remove('visible');
   container.classList.remove('invizible');
-  console.dir(yourPickImage);
+
   yourPickImage.outerHTML = `<div class="your-pick-image"></div>`;
   computerPickImage.outerHTML = `<div class="computer-pick-image"></div>`;
+
 });
 
 
