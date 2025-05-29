@@ -68,7 +68,7 @@ buttonCircles.forEach((button, i) => {
     <img src="./images/${choiceToImageMap[computer].image}" alt="">
     </div></div>
     `;
-    }, 3000);
+    }, 2000);
 
     const isUserWinner =
       winningCombos[user].beats[0] == computer ||
@@ -99,11 +99,11 @@ buttonCircles.forEach((button, i) => {
         }
       }
       
-    }, 3000);
+    }, 2000);
 
     setTimeout(() => {
       buttonPlayAgain.classList.remove('invizible');
-    }, 4000);
+    }, 3000);
 
     const chekWinner = () => {
       setTimeout(() => {
@@ -118,7 +118,7 @@ buttonCircles.forEach((button, i) => {
             textPlayAgain.textContent = 'YOU LOOSE';
           }
         }
-      }, 3000);
+      }, 2000);
     };
 
     chekWinner();

@@ -36,6 +36,7 @@ html {
   text-align: center;
   padding-block: 48px;
   position: relative;
+  overflow: hidden;
 }
 .body-dark {
   background: #000;
@@ -415,3 +416,5 @@ img {
 .spock-light {
   border: 17px solid #3fb7cd;
 }
+
+

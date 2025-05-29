@@ -1,0 +1,40 @@
+@media (max-width: 970px) {
+  :root {
+    --container-width: 311px;
+    --container-height: 305px;
+    --circle-size: 96px;
+    --circle-size-small: 74px;
+  }
+
+  header {
+    .box-header {
+      max-width: 311px;
+      height: 96px;
+      padding-inline-start: 0;
+      img {
+        scale: 0.5;
+      }
+      .score {
+        width: 80px;
+        height: 72px;
+        border-radius: 4px;
+      }
+      .score-text {
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 1.5625px;
+      }
+      .scoreNumber {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+  .container .circle img {
+    scale: 0.6;
+  }
+  .button-rules-up {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
