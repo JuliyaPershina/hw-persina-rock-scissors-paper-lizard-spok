@@ -59,13 +59,15 @@ buttonCircles.forEach((button, i) => {
     </div></div>
     `;
 
-    computerPickImage.outerHTML = `
+    setTimeout(() => {
+      computerPickImage.outerHTML = `
     <div class="computer-pick-image"><div class=" circle-choise circle-down-choise ${choiceToImageMap[computer].alt}"></div>
     <div class="circle-choise circle-white-choise "></div>
     <div class=" circle-choise ${choiceToImageMap[computer].alt}-light">
     <img src="./images/${choiceToImageMap[computer].image}" alt="">
     </div></div>
     `;
+    }, 3000);
 
     const isUserWinner =
       winningCombos[user].beats[0] == computer ||
@@ -82,37 +84,41 @@ buttonCircles.forEach((button, i) => {
     );
     console.log(YourPickRiples, ComputerPickRiples);
 
-    if (user === computer) {
-      ComputerPickRiples.forEach((elem) => {
-        elem.classList.add('invizible');
-      });
-      YourPickRiples.forEach((elem) => {
-        elem.classList.add('invizible');
-      });
-    } else {
-      if (isUserWinner) {
-        ComputerPickRiples.forEach((elem) => {
-          elem.classList.add('invizible');
-        });
-      } else {
-        YourPickRiples.forEach((elem) => {
-          elem.classList.add('invizible');
-        });
-      }
-    }
-
-    const chekWinner = () => {
+    setTimeout(() => {
       if (user === computer) {
-        textPlayAgain.textContent = 'draw';
+        // ComputerPickRiples.forEach((elem) => {
+        //   elem.classList.add('invizible');
+        // });
+        // YourPickRiples.forEach((elem) => {
+        //   elem.classList.add('invizible');
+        // });
       } else {
         if (isUserWinner) {
-          textPlayAgain.textContent = 'YOU WIN';
-          scor += 1;
-          scoreNumber.textContent = scor;
+          YourPickRiples.forEach((elem) => {
+            elem.classList.remove('invizible');
+          });
         } else {
-          textPlayAgain.textContent = 'YOU LOOSE';
+          ComputerPickRiples.forEach((elem) => {
+            elem.classList.remove('invizible');
+          });
         }
       }
+    }, 3000);
+
+    const chekWinner = () => {
+      setTimeout(() => {
+        if (user === computer) {
+          textPlayAgain.textContent = 'draw';
+        } else {
+          if (isUserWinner) {
+            textPlayAgain.textContent = 'YOU WIN';
+            scor += 1;
+            scoreNumber.textContent = scor;
+          } else {
+            textPlayAgain.textContent = 'YOU LOOSE';
+          }
+        }
+      }, 3000);
     };
 
     chekWinner();
@@ -125,11 +131,13 @@ playAgain.addEventListener('click', (event) => {
   const YourPickRiples = document.querySelectorAll('.your-pick .riple');
   const ComputerPickRiples = document.querySelectorAll('.computer-pick .riple');
 
+  textPlayAgain.textContent = '';
+
   ComputerPickRiples.forEach((elem) => {
-    elem.classList.remove('invizible');
+    elem.classList.add('invizible');
   });
   YourPickRiples.forEach((elem) => {
-    elem.classList.remove('invizible');
+    elem.classList.add('invizible');
   });
 
   wrapper.classList.remove('visible');
