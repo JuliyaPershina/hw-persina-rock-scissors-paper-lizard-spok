@@ -10,6 +10,7 @@ const buttonRulesUp = document.querySelector('.button-rules-up');
 const buttonRulesDown = document.querySelector('.button-rules-down');
 const popover = document.getElementById('pop-rules');
 
+const buttonPlayAgain = document.querySelector('.button-play-again');
 const playAgain = document.querySelector('.play-again');
 const textPlayAgain = document.querySelector('.text-play-again');
 const userImage = document.querySelector('.your-pick > img');
@@ -86,12 +87,6 @@ buttonCircles.forEach((button, i) => {
 
     setTimeout(() => {
       if (user === computer) {
-        // ComputerPickRiples.forEach((elem) => {
-        //   elem.classList.add('invizible');
-        // });
-        // YourPickRiples.forEach((elem) => {
-        //   elem.classList.add('invizible');
-        // });
       } else {
         if (isUserWinner) {
           YourPickRiples.forEach((elem) => {
@@ -103,7 +98,12 @@ buttonCircles.forEach((button, i) => {
           });
         }
       }
+      
     }, 3000);
+
+    setTimeout(() => {
+      buttonPlayAgain.classList.remove('invizible');
+    }, 4000);
 
     const chekWinner = () => {
       setTimeout(() => {
@@ -139,6 +139,8 @@ playAgain.addEventListener('click', (event) => {
   YourPickRiples.forEach((elem) => {
     elem.classList.add('invizible');
   });
+
+  buttonPlayAgain.classList.add('invizible');
 
   wrapper.classList.remove('visible');
   container.classList.remove('invizible');

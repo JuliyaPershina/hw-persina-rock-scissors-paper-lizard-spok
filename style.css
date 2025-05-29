@@ -251,7 +251,7 @@ main.you-win h1.computer-wins {
   margin-block: 72px;
   margin-inline: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 77px;
 }
@@ -351,7 +351,6 @@ img {
   bottom: 80px;
   left: 48px;
   z-index: 0;
-  /* animation: wave 2s ease-in 0 infinite normal none; */
   animation-name: wave;
   animation-duration: 3s;
   animation-delay: 0s;
@@ -363,6 +362,18 @@ img {
 }
 .riple-2 {
   animation-delay: 2s;
+}
+.blue {
+  width: 224px;
+  height: 224px;
+  opacity: 1;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50px;
+  left: 48px;
+  z-index: 3;
+  animation: none;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 @keyframes wave {
