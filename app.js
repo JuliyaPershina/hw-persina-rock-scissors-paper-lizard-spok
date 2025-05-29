@@ -76,6 +76,31 @@ buttonCircles.forEach((button, i) => {
     console.log(isUserWinner);
     console.log(`переможець ${winner}`);
 
+    const YourPickRiples = document.querySelectorAll('.your-pick .riple');
+    const ComputerPickRiples = document.querySelectorAll(
+      '.computer-pick .riple'
+    );
+    console.log(YourPickRiples, ComputerPickRiples);
+
+    if (user === computer) {
+      ComputerPickRiples.forEach((elem) => {
+        elem.classList.add('invizible');
+      });
+      YourPickRiples.forEach((elem) => {
+        elem.classList.add('invizible');
+      });
+    } else {
+      if (isUserWinner) {
+        ComputerPickRiples.forEach((elem) => {
+          elem.classList.add('invizible');
+        });
+      } else {
+        YourPickRiples.forEach((elem) => {
+          elem.classList.add('invizible');
+        });
+      }
+    }
+
     const chekWinner = () => {
       if (user === computer) {
         textPlayAgain.textContent = 'draw';
@@ -97,6 +122,15 @@ buttonCircles.forEach((button, i) => {
 playAgain.addEventListener('click', (event) => {
   const yourPickImage = document.querySelector('.your-pick-image');
   const computerPickImage = document.querySelector('.computer-pick-image');
+  const YourPickRiples = document.querySelectorAll('.your-pick .riple');
+  const ComputerPickRiples = document.querySelectorAll('.computer-pick .riple');
+
+  ComputerPickRiples.forEach((elem) => {
+    elem.classList.remove('invizible');
+  });
+  YourPickRiples.forEach((elem) => {
+    elem.classList.remove('invizible');
+  });
 
   wrapper.classList.remove('visible');
   container.classList.remove('invizible');
@@ -121,9 +155,3 @@ popover.addEventListener('click', (event) => {
 body.addEventListener('click', (event) => {
   body.classList.remove('body-dark');
 });
-
-// const YourPickRiples = document.querySelectorAll('.your-pick .riple');
-// const ComputerPickRiples = document.querySelectorAll(
-//   '.computer-pick .riple'
-// );
-// console.log(ComputerPickRiples);
