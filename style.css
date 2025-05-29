@@ -38,9 +38,9 @@ html {
   position: relative;
 }
 .body-dark {
-    background: #000;
-    opacity: 0.5;
-  }
+  background: #000;
+  opacity: 0.5;
+}
 header {
   /* margin-top: 48px; */
   /* padding-block-start: 48px; */
@@ -261,6 +261,16 @@ main.you-win h1.computer-wins {
   position: relative;
   width: 239px;
   height: 395px;
+  h1 {
+    font-family: 'Barlow Semi Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+  }
 }
 
 .circle-choise {
@@ -276,6 +286,7 @@ main.you-win h1.computer-wins {
   background: transparent;
   border: 17px solid #eb9f0e;
   transition: all 0.5s ease-in-out;
+  z-index: 6;
 }
 .circle-white-choise {
   width: var(--circle-size-small);
@@ -283,17 +294,21 @@ main.you-win h1.computer-wins {
   background: white;
   border: 7px solid #babfd4;
   left: 58px;
+  z-index: 5;
 }
 .circle-down-choise {
   background: #c76c1b;
   border: none;
   bottom: 68px;
+  z-index: 4;
 }
 img {
   object-fit: none;
+  z-index: 7;
 }
 
 .play-again {
+  position: static;
   width: 220px;
   height: 48px;
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
@@ -307,11 +322,56 @@ img {
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #3b4262;
+  transition: all 0.4s ease-in;
+  &:hover {
+    margin-block-start: 1px;
+    opacity: 0.8;
+    width: 218px;
+    height: 47px;
+  }
+}
+.text-play-again {
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 67px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
 }
 
-.play-again:hover {
-  background: black;
-  color: white;
+.riple {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background: #ffffff;
+  opacity: 5%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 80px;
+  left: 48px;
+  z-index: 0;
+  /* animation: wave 2s ease-in 0 infinite normal none; */
+  animation-name: wave;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.riple-1 {
+  animation-delay: 1s;
+}
+.riple-2 {
+  animation-delay: 2s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(5);
+  }
 }
 
 .scissors {
