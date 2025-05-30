@@ -48,6 +48,10 @@ buttonCircles.forEach((button, i) => {
 
     container.classList.add('invizible');
     wrapper.classList.add('visible');
+    wrapper.classList.add('nerowWrapper');
+    setTimeout(() => {
+      wrapper.classList.remove('nerowWrapper');
+    }, 3000);
 
     const yourPickImage = document.querySelector('.your-pick-image');
     const computerPickImage = document.querySelector('.computer-pick-image');
@@ -98,8 +102,7 @@ buttonCircles.forEach((button, i) => {
           });
         }
       }
-      
-    }, 2000);
+    }, 3000);
 
     setTimeout(() => {
       buttonPlayAgain.classList.remove('invizible');
@@ -108,7 +111,7 @@ buttonCircles.forEach((button, i) => {
     const chekWinner = () => {
       setTimeout(() => {
         if (user === computer) {
-          textPlayAgain.textContent = 'draw';
+          textPlayAgain.textContent = 'DRAW';
         } else {
           if (isUserWinner) {
             textPlayAgain.textContent = 'YOU WIN';

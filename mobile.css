@@ -3,7 +3,11 @@
     --container-width: 311px;
     --container-height: 305px;
     --circle-size: 96px;
-    --circle-size-small: 74px;
+    --circle-size-small: 83px;
+  }
+
+  .body {
+    padding-inline: 21px;
   }
 
   header {
@@ -35,6 +39,117 @@
   }
   .button-rules-up {
     right: 50%;
+    bottom: 56px;
     transform: translateX(50%);
+  }
+
+  [popover] {
+    position: relative;
+    border: none;
+    padding-block: 95px 66px;
+    height: 100vh;
+    padding-inline: 32px;
+    width: 100vw;
+    border-radius: 0;
+    .pop-rules-top {
+      display: flex;
+      flex-direction: column;
+      margin-block-end: 95px;
+      justify-content: space-between;
+      img {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    img {
+      scale: 1;
+      width: 311px;
+      height: 305px;
+      margin-inline: auto;
+    }
+  }
+
+  /* Сторінка  результату гри */
+
+  .wrapper.visible {
+    min-width: auto;
+    width: 100%;
+    margin-block: 100px;
+    margin-inline: auto;
+    padding-inline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+  }
+  .your-pick,
+  .computer-pick {
+    align-content: end;
+    width: 145px;
+    height: 182px;
+
+    h1 {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1.875px;
+    }
+  }
+
+  .circle-choise {
+    bottom: auto;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-35%);
+    width: var(--circle-size);
+    height: var(--circle-size);
+    scale: 1.4;
+  }
+  .circle-white-choise {
+    width: var(--circle-size-small);
+    height: var(--circle-size-small);
+    top: 33px;
+    border: 5px solid #babfd4;
+    left: 50%;
+    transform: translateX(-35%);
+  }
+  .circle-down-choise {
+    top: 27px;
+  }
+  img {
+    scale: 0.7;
+  }
+  .blue {
+    top: 33px;
+    left: 50%;
+    transform: translateX(-35%);
+  }
+  .riple {
+    left: 25px;
+    top: 20px;
+    width: var(--circle-size);
+    height: var(--circle-size);
+  }
+
+  @keyframes wave {
+    0% {
+      transform: scale(1.4);
+    }
+    100% {
+      transform: scale(4.2);
+    }
+  }
+
+  .button-play-again {
+    top: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .text-play-again {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 67px;
   }
 }

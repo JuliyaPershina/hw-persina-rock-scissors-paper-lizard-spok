@@ -19,6 +19,7 @@
   --circle-size: 145px;
   --circle-size-small: 124px;
   --radius: calc((var(--container-width) - var(--circle-size)) / 2);
+  --border: calc(0.11 * var(--radius));
 }
 html {
   background: #161d3f;
@@ -35,31 +36,32 @@ html {
   align-items: center;
   text-align: center;
   padding-block: 48px;
+  padding-inline: 32px;
   position: relative;
   overflow: hidden;
 }
+
 .body-dark {
   background: #000;
   opacity: 0.5;
 }
 header {
-  /* margin-top: 48px; */
-  /* padding-block-start: 48px; */
   height: calc(100% / 5);
   max-width: 764px;
   width: 100%;
-  padding-inline: 32px;
-  /* flex-shrink: 0; */
+  margin-inline: auto;
   .box-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 700px;
+    width: 100%;
     height: 150px;
     border: 3px solid rgba(255, 255, 255, 0.289199);
     border-radius: 15px;
     padding-block: 18px;
     padding-inline: 32px 24px;
+    margin-inline: auto;
     .score {
       width: 150px;
       height: 114px;
@@ -90,7 +92,9 @@ header {
 }
 
 main {
-  flex-shrink: 1;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 952px;
 }
 .container {
   position: relative;
@@ -101,6 +105,11 @@ main {
 
 .invizible {
   display: none;
+}
+
+button.buttonCircle {
+  border: none;
+  padding: 0;
 }
 
 button.buttonCircle:active {
@@ -118,7 +127,7 @@ button.buttonCircle:active {
   height: var(--circle-size);
   border-radius: 50%;
   background: transparent;
-  border: 17px solid #eb9f0e;
+  border: var(--radius) * 0.001 solid #eb9f0e;
   transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius))
     rotate(calc(-1 * var(--angle)));
   transition: all 0.5s ease-in-out;
@@ -232,29 +241,18 @@ footer {
 
 /* Сторінка  результату гри */
 
-main.winner.you-win {
-  background: url('./images/you-win.svg') left top no-repeat;
-  background-size: auto 100%;
-}
-
-main.winner.computer-wins {
-  background: url('./images/computer-wins.svg') right top no-repeat;
-  background-size: auto 100%;
-}
-
-/* main.computer-wins h1.you-win,
-main.you-win h1.computer-wins {
-  visibility: hidden;
-} */
-
 .wrapper.visible {
-  min-width: 660px;
+  width: 100%;
+  padding-inline: 40px;
   margin-block: 72px;
   margin-inline: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 77px;
+  gap: 140px;
+}
+.wrapper.visible.nerowWrapper {
+  justify-content: center;
 }
 
 .your-pick,
@@ -262,6 +260,7 @@ main.you-win h1.computer-wins {
   position: relative;
   width: 239px;
   height: 395px;
+
   h1 {
     font-family: 'Barlow Semi Condensed';
     font-style: normal;
@@ -306,6 +305,14 @@ main.you-win h1.computer-wins {
 img {
   object-fit: none;
   z-index: 7;
+}
+
+.button-play-again {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .play-again {
@@ -365,13 +372,13 @@ img {
   animation-delay: 2s;
 }
 .blue {
-  width: 224px;
-  height: 224px;
+  width: var(--circle-size-small);
+  height: var(--circle-size-small);
   opacity: 1;
   border-radius: 50%;
   position: absolute;
-  bottom: 50px;
-  left: 48px;
+  bottom: 80px;
+  left: 58px;
   z-index: 3;
   animation: none;
   background: rgba(0, 0, 0, 0.1);
@@ -390,31 +397,29 @@ img {
   background: #c76c1b;
 }
 .scissors-light {
-  border: 17px solid #eb9f0e;
+  border: var(--border) solid #eb9f0e;
 }
 .paper {
   background: #2a45c2;
 }
 .paper-light {
-  border: 17px solid #4664f4;
+  border: var(--border) solid #4664f4;
 }
 .rock {
   background: #9d1634;
 }
 .rock-light {
-  border: 17px solid #db2e4d;
+  border: var(--border) solid #db2e4d;
 }
 .lizard {
   background: #5f37a8;
 }
 .lizard-light {
-  border: 17px solid #834ee3;
+  border: var(--border) solid #834ee3;
 }
 .spock {
   background: #2d8dab;
 }
 .spock-light {
-  border: 17px solid #3fb7cd;
+  border: var(--border) solid #3fb7cd;
 }
-
-
