@@ -118,10 +118,14 @@ buttonCircles.forEach((button, i) => {
             scor += 1;
             scoreNumber.textContent = scor;
           } else {
-            textPlayAgain.textContent = 'YOU LOOSE';
+            textPlayAgain.textContent = 'YOU LOSE';
+            if (scor > 0) {
+              scor -= 1;
+            }
+            scoreNumber.textContent = scor;
           }
         }
-      }, 2000);
+      }, 3000);
     };
 
     chekWinner();
