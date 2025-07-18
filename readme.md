@@ -2,7 +2,7 @@
 
 Це рішення до бонусного варіанту гри **Rock, Paper, Scissors, Lizard, Spock**, створеної як інтерпретація класичної гри з додатковими виборами.
 
-![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
+![Design preview for the Rock, Paper, Scissors coding challenge](./preview.png)
 
 ---
 
@@ -49,6 +49,8 @@
 - **CSS** змінні та анімації
 - **Flexbox** та адаптивна верстка
 - Чистий **JavaScript**
+- Вбудоване використання **Popover API** для взаємодії з правилами гри
+
 
 ---
 
@@ -70,8 +72,9 @@
 ├── app.js
 ├── style-guide.md
 ├── readme.md
-├── /images
-└── /design
+├── .gitignore
+└── /images
+
 ```
 ### 📄 HTML Head
 
